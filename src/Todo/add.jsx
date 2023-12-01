@@ -1,33 +1,20 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 
-const UpdateTask = ({ taskdata, settaskdata, show, setshow, editid }) => {
+const AddTask = ({ taskdata, settaskdata }) => {
     const [title, settitle] = useState('');
     const [description, setdescription] = useState('');
-    const [status,setstatus]=useState('')
 
-    
-    useEffect(()=>{
-        const selectedtask =taskdata.filter((info,idx)=>idx===editid)
-        settitle(selectedtask[0].title);
-        setdescription(selectedtask[0].description);
-        setstatus(selectedtask[0].status)
-
-        console.log(selectedtask[0])
-    },[editid]);
-
-    
-    const update = () => {
-        const updated = {
+    const addnewtask = () => {
+        const newTask = {
             title,
             description,
-            status
+            status: "Not completed"
         };
-        taskdata[editid]=updated
-        settaskdata([...taskdata]);
-        setshow(true)
+        settaskdata([...taskdata, newTask]);
     };
+
     return (
         <div className="flex flex-col sm:flex-row items-center justify-center gap-5 m-5">
             <input
@@ -46,11 +33,11 @@ const UpdateTask = ({ taskdata, settaskdata, show, setshow, editid }) => {
             />
             <button
                 className="btn btn-accent w-24"
-                onClick={update}>
-                update
-            </button>   
+                onClick={addnewtask}>
+                Add Todo
+            </button>
         </div>
     );
 };
 
-export default UpdateTask;
+export default AddTask;

@@ -1,7 +1,7 @@
 
 import './App.css'
-import Main from './Components/Main'
-import WorkSpace from './Components/WorkSpace'
+import Main from './Todo/main'
+import WorkSpace from './Todo/workspace'
 
 function App() {
 
