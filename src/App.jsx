@@ -5,19 +5,20 @@ import Mainpage from './Page/Mainpagee'
 import Cartpage from './Page/Cartpagee' 
 import { useEffect } from 'react';
 import { GetAllproducts } from './Addapi/Apii';
-import { AppState } from './ContextApi/Contextapi';
+import { updateinfo } from './Redux/redux';
+import { useDispatch } from 'react-redux';
 
 function App() {
-  const {setinfo}=AppState();
+  const dispatch=useDispatch()
   useEffect(() => {
     GetAllproducts()
       .then((data) => {
-        setinfo(data);
+        dispatch(updateinfo(data));
       })
       .catch((error) => {
-        console.error("Error fetching product data:", error);
+        console.log("Error fetching product data:", error);
       });
-  }, []);
+  }, [dispatch]);
   
 
   

@@ -1,23 +1,22 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
 import Topbar from "./topbar";
 import { useNavigate } from "react-router";
-import { AppState } from "../ContextApi/Contextapi";
+import { useDispatch, useSelector } from "react-redux";
+import { updatecart } from "../Redux/redux";
 
 export default function Cart({id}){
 
-    const{info}=AppState();
+  const {info,cart}=useSelector((state)=>state.Dataupdater.data)
     const selectedproduct=info?.filter((data)=>data.id==id.id)
-    const [cart,setcart]=useState(1);
     const navigate=useNavigate();
-    // console.log(`Data:${selectedproduct}`)
+    const dispatch=useDispatch();
        
     const handleQuantityChange =(event) => {
         const quantity = parseInt(event.target.value, 10);
         if (!isNaN(quantity) && quantity > 0) {
-          setcart(quantity);
+          dispatch(updatecart(quantity));
         } else {
-          setcart(1);
+          dispatch(updatecart(1));
         }
       };
     return(
@@ -71,6 +70,12 @@ export default function Cart({id}){
                             <option value={2}>2</option>
                             <option value={3}>3</option>
                             <option value={4}>4</option>
+                            <option value={5}>5</option>
+                            <option value={6}>6</option>
+                            <option value={7}>7</option>
+                            <option value={8}>8</option>
+                            <option value={9}>9</option>
+                            <option value={10}>10</option>
                             </select>
                          </div>
                          <div className="stat">

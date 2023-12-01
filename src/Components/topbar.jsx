@@ -1,10 +1,12 @@
+import { useNavigate } from "react-router"
 
 export default function Topbar(){
+    const navigate=useNavigate()
 
     return(
         <div className="navbar bg-base-100">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-3xl">Amazon</a>
+                <a className="btn btn-ghost normal-case text-3xl" onClick={()=>navigate('/')}>Amazon</a>
             </div>
             <div className="flex-none">
 
@@ -28,4 +30,3 @@ export default function Topbar(){
         </div>
     )
 }
-

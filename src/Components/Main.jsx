@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 
 import { useNavigate } from "react-router";
-import { AppState } from "../ContextApi/Contextapi";
+import { useSelector } from "react-redux";
 
 export default function Main(){
     const navigate=useNavigate();
-    const {info}=AppState()
+    const {info}=useSelector((state)=>state.Dataupdater.data)
     const shopers=info;
 
     return(
