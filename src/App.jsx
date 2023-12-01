@@ -11,8 +11,6 @@ import FullStack from './Router/FullStack'
 
 
 
-function App() 
-{
   return (
     <div className="app">
     
