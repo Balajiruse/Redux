@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
-import AddTask from "./Add"
+import AddTask from './Add';
 import UpdateTask from './update';
 import Mytodo from './todo';
 import Filter from './filter';
