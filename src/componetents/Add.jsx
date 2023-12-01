@@ -34,7 +34,7 @@ const AddTask = ({ taskdata, settaskdata }) => {
             <button
                 className="btn btn-accent w-24"
                 onClick={addnewtask}>
-                Add
+                Add Todo
             </button>
         </div>
     );
