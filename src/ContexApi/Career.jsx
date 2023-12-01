@@ -1,14 +1,15 @@
-import WorkSpace from "../Component/WorkSpace";
-import FullStackPage from "../Page/FullStackPage";
 
-const FullStack=()=>{
+import WorkSpace from "../Component/WorkSpace";
+import CareerPage from "../Page/Cartpage";
+
+const Career=()=>{
     return(
         <div>
             <WorkSpace>
-                <FullStackPage/>
+                <CareerPage/>
             </WorkSpace>
         </div>
     )
 }
 
-export default FullStack;
+export default Career;

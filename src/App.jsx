@@ -1,30 +1,35 @@
-//eslint-disable-next-line react/prop-types
-
+import { Route, Routes } from 'react-router'
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
-import All from './Router/All'
-import Career from './Router/Career'
-import CyberSecurity from './Router/CyberSecurity'
-import DataScience from './Router/DataScience'
-import FullStack from './Router/FullStack'
 
+import Mainpage from './Page/Mainpagee'
+import Cartpage from './Page/Cartpagee' 
+import { useEffect } from 'react';
+import { GetAllproducts } from './Addapi/Apii';
+import { AppState } from './ContextApi/Contextapi';
 
+function App() {
+  const {setinfo}=AppState();
+  useEffect(() => {
+    GetAllproducts()
+      .then((data) => {
+        setinfo(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching product data:", error);
+      });
+  }, []);
+  
 
+  
 
   return (
-    <div className="app">
-    
-    <Routes> 
-      <Route exact path="/"element={<All/>}/>
-      <Route path="/doc/FullStack"element={<FullStack/>}/>
-      <Route path="/doc/Science"element={<DataScience/>}/>
-      <Route path="/doc/Security"element={<CyberSecurity/>}/>
-      <Route path="/doc/Career"element={<Career/>}/>
-    
-    </Routes>
-
+    <div className="App">
+      <Routes>
+        <Route exact path='/' element={<Mainpage />} />
+        <Route path='/cart/:id' element={<Cartpage  />} />  
+      </Routes>
     </div>
   )
 }
 
-export default App;
+export default App
