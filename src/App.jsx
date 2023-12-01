@@ -1,17 +1,32 @@
+//eslint-disable-next-line react/prop-types
 
 import './App.css'
-import Main from './Todo/main'
-import WorkSpace from './Todo/workspace'
+import { Route, Routes } from 'react-router-dom'
+import All from './Router/All'
+import Career from './Router/Career'
+import CyberSecurity from './Router/CyberSecurity'
+import DataScience from './Router/DataScience'
+import FullStack from './Router/FullStack'
 
-function App() {
 
+
+
+function App() 
+{
   return (
-   <div className="app ">
-    <WorkSpace>
-      <Main/>
-    </WorkSpace>
-   </div>
+    <div className="app">
+    
+    <Routes> 
+      <Route exact path="/"element={<All/>}/>
+      <Route path="/doc/FullStack"element={<FullStack/>}/>
+      <Route path="/doc/Science"element={<DataScience/>}/>
+      <Route path="/doc/Security"element={<CyberSecurity/>}/>
+      <Route path="/doc/Career"element={<Career/>}/>
+    
+    </Routes>
+
+    </div>
   )
 }
 
-export default App
+export default App;
