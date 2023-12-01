@@ -11,6 +11,6 @@ Currently, two official plugins are available:
 `
 npm run dev
 `
-- Router
+- Amazon
 
--[Live site](https://steady-zuccutto-1d5680.netlify.app/)
+-[AMAZON](https://clever-puffpuff-f77fc2.netlify.app/)
